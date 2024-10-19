@@ -2,6 +2,7 @@ import React from "react";
 import Login from "./login"; // Import Login component
 import Image from "next/image";
 import Signup from "./signup";
+import ResetModal from "./resetModal";
 type AuthModalProps = {};
 
 const AuthModal:React.FC<AuthModalProps>  = () => {
@@ -11,7 +12,7 @@ const AuthModal:React.FC<AuthModalProps>  = () => {
         <Image src='/logo-short.png' alt='AlgoArena' height={100} width={100}/>
         </div>
       <div className="flex flex-col items-start">
-        <Login />
+        <ResetModal />
       </div>
     </div>
   );

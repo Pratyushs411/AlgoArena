@@ -8,11 +8,11 @@ const signup:React.FC<signupProps> = () => {
     
     return (<form className="flex flex-col items-start w-full">
         <div className="text-center w-full">
-      <h2 className="text-lg font-bold text-black mb-4">Sign in to AlgoArena</h2>
+      <h2 className="text-lg font-bold text-black mb-4">Register to AlgoArena</h2>
     </div>
         <div className="w-full mb-4">
           <label htmlFor='email' className='text-sm font-medium block mb-2 text-black text-left'>
-            Your Email
+            Email
           </label>
           <input
             type='email'
@@ -42,7 +42,7 @@ const signup:React.FC<signupProps> = () => {
         </div>
         <div className="w-full mb-4">
           <label htmlFor='password' className='text-sm font-medium block mb-2 text-black text-left'>
-            Your Password
+           Password
           </label>
           <input
             type='password'
@@ -63,19 +63,12 @@ const signup:React.FC<signupProps> = () => {
             bg-turquoise text-white rounded-md text-sm font-medium hover:border-2 hover:border-turquoise border-2 border-transparent
                   transition duration-300 ease-in-out'
         >
-          Log In
+          Sign Up
         </button>
-  
-        <div className='flex justify-start w-full mt-4'>
-          <a href='#' className='text-sm text-turquoise hover:underline text-left'>
-            Forgot Password?
-          </a>
-        </div>
-  
         <div className='text-sm font-medium text-black text-left mt-2'>
-          Not Registered?{" "}
+          Already have a account?{" "}
           <a href='#' className='text-blue-700 hover:underline'>
-            Create account
+            Log In
           </a>
         </div>
       </form>
