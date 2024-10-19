@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 import { FaArrowLeft } from "react-icons/fa";
+import { useSetRecoilState } from "recoil";
+import { authModalState } from "@/atoms/authModalAtom";
 type resetModalProps = {
 
 };
 
 const resetModal: React.FC<resetModalProps> = () => {
-
+    const setAuthModalState = useSetRecoilState(authModalState);
+    const handleClick = () => {
+        setAuthModalState((prev) => ({ ...prev, type: "login" }));
+      };      
     return (
         <form className="flex flex-col items-start w-full">
             <div className="text-center w-full">
@@ -39,8 +46,8 @@ const resetModal: React.FC<resetModalProps> = () => {
                 Reset Password
             </button>
             <div className='flex items-center justify-start w-full mt-4'>
-                <a href='#' className='text-sm text-turquoise hover:underline text-left flex items-center'>
-                    <FaArrowLeft />Back to Log In
+                <a href='#' className='text-sm text-turquoise hover:underline text-left flex items-center' onClick={() => handleClick()}>
+                    <FaArrowLeft />Back to Sign In
                 </a>
             </div>
 

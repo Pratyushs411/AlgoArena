@@ -6,7 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <RecoilRoot>
     <Head>
 				<title>AlgoArena</title>
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -17,6 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
 				/>
 			</Head>
     <Component {...pageProps} />
-    </>
-  )
+    </RecoilRoot>
+  );
 }

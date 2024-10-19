@@ -1,11 +1,20 @@
 import React from 'react';
-
+import { authModalState } from "@/atoms/authModalAtom";
+import { useEffect, useState } from "react";
+import { useSetRecoilState } from "recoil";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useRouter } from "next/router";
+import { doc, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 type signupProps = {
     
 };
 
 const signup:React.FC<signupProps> = () => {
-    
+    const setAuthModalState = useSetRecoilState(authModalState);
+	const handleClick = () => {
+		setAuthModalState((prev) => ({ ...prev, type: "login" }));
+	};
     return (<form className="flex flex-col items-start w-full">
         <div className="text-center w-full">
       <h2 className="text-lg font-bold text-black mb-4">Register to AlgoArena</h2>
@@ -67,7 +76,7 @@ const signup:React.FC<signupProps> = () => {
         </button>
         <div className='text-sm font-medium text-black text-left mt-2'>
           Already have a account?{" "}
-          <a href='#' className='text-blue-700 hover:underline'>
+          <a href='#' className='text-blue-700 hover:underline' onClick={handleClick}>
             Log In
           </a>
         </div>

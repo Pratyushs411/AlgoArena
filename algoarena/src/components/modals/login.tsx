@@ -1,8 +1,16 @@
-import React from 'react';
-
+import { authModalState } from "@/atoms/authModalAtom";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSetRecoilState } from "recoil";
+import { toast } from "react-toastify";
 type LoginProps = {};
 
 const Login: React.FC = () => {
+    const setAuthModalState = useSetRecoilState(authModalState);
+    const handleClick = (type: "login" | "register" | "forgotPassword") => {
+		setAuthModalState((prev) => ({ ...prev, type }));
+	};
   return (
     <form className="flex flex-col items-start w-full">
       <div className="text-center w-full">
@@ -50,15 +58,15 @@ const Login: React.FC = () => {
         Log In
       </button>
 
-      <div className='flex justify-start w-full mt-4'>
+      <button className='flex justify-start w-full mt-4' onClick={() => handleClick("forgotPassword")}>
         <a href='#' className='text-sm text-turquoise hover:underline text-left'>
           Forgot Password?
         </a>
-      </div>
+      </button>
 
       <div className='text-sm font-medium text-black text-left mt-2'>
         Not Registered?{" "}
-        <a href='#' className='text-blue-700 hover:underline'>
+        <a href='#' className='text-blue-700 hover:underline' onClick={() => handleClick("register")}>
           Create account
         </a>
       </div>
