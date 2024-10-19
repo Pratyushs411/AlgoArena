@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./login"; // Import Login component
 import Image from "next/image";
+import Signup from "./signup";
 type AuthModalProps = {};
 
 const AuthModal:React.FC<AuthModalProps>  = () => {
