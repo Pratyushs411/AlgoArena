@@ -38,6 +38,13 @@ const topbar:React.FC<topbarProps> = () => {
 				>
 					Discuss
 				</button>
+                <Link href='/auth'>
+				<button className='bg-turquoise text-white px-2 py-1 sm:px-4 rounded-md text-md 
+                hover:text-turquoise hover:bg-white hover:border-2 hover:border-turquoise border-2 border-transparent
+                transition duration-300 ease-in-out
+                '
+				>Sign In</button>
+				</Link>
 			</div>
         </div>
       </nav>      
