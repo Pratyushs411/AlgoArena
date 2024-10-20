@@ -33,7 +33,7 @@ const Signup: React.FC<signupProps> = () => {
         if (!inputs.email || !inputs.password || !inputs.username) return alert("Please fill all fields");
 		try {
 			const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password);
-			if (!newUser) return;
+			if (!newUser) return; 
 			router.push("/");
 		} catch (error: any) {
 			toast.error(error.message, { position: "top-center" });

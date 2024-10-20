@@ -1,4 +1,5 @@
 import { authModalState } from "@/atoms/authModalAtom";
+import { auth } from "@/firebase/firebase";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -11,8 +12,34 @@ const Login: React.FC = () => {
     const handleClick = (type: "login" | "register" | "forgotPassword") => {
 		setAuthModalState((prev) => ({ ...prev, type }));
 	};
+  const [inputs, setInputs] = useState({ email: "", password: "" });
+	const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+	const router = useRouter();
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+	};
+
+	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		if (!inputs.email || !inputs.password) return alert("Please fill all fields");
+		try {
+			const newUser = await signInWithEmailAndPassword(inputs.email, inputs.password);
+			if (!newUser) return;
+			router.push("/");
+		} catch (error: any) {
+			alert(error.message);
+		}
+	};
+
+	useEffect(() => {
+    if (error) {
+      console.log(error); // Log the error to inspect its structure
+      if(error) alert(error.message);
+    }
+  }, [error]);
+  
   return (
-    <form className="flex flex-col items-start w-full">
+    <form className="flex flex-col items-start w-full" onSubmit={handleLogin}>
       <div className="text-center w-full">
     <h2 className="text-lg font-bold text-black mb-4">Sign in to AlgoArena</h2>
   </div>
@@ -21,6 +48,7 @@ const Login: React.FC = () => {
           Your Email
         </label>
         <input
+          onChange={handleInputChange}
           type='email'
           name='email'
           id='email'
@@ -37,6 +65,7 @@ const Login: React.FC = () => {
           Your Password
         </label>
         <input
+          onChange={handleInputChange}
           type='password'
           name='password'
           id='password'
@@ -55,7 +84,7 @@ const Login: React.FC = () => {
           bg-turquoise text-white rounded-md text-sm font-medium hover:border-2 hover:border-turquoise border-2 border-transparent
                 transition duration-300 ease-in-out'
       >
-        Log In
+        {loading ? "Logging In..." : "Log In"}
       </button>
 
       <button className='flex justify-start w-full mt-4' onClick={() => handleClick("forgotPassword")}>
