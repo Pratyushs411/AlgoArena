@@ -30,6 +30,7 @@ module.exports = {
 				"dark-green-s": "rgb(44 187 93)",
 				"dark-blue-s": "rgb(10 132 255)",
         "turquoise": "rgb(0, 168, 171)",
+		"light-turquoise":"rgb(218,244,240)"
 			},
 		},
 	},
