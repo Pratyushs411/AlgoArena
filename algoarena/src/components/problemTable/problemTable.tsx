@@ -14,8 +14,26 @@ type problemTableProps = {
 };
 
 const problemTable: React.FC<problemTableProps> = () => {
+    const [youtubePlayer, setYoutubePlayer] = useState({
+		isOpen: false,
+		videoId: "",
+	});
+    //const problems = useGetProblems(setLoadingProblems);
+	//const solvedProblems = useGetSolvedProblems();
+	//console.log("solvedProblems", solvedProblems);
+	const closeModal = () => {
+		setYoutubePlayer({ isOpen: false, videoId: "" });
+	};
+    useEffect(() => {
+		const handleEsc = (e: KeyboardEvent) => {
+			if (e.key === "Escape") closeModal();
+		};
+		window.addEventListener("keydown", handleEsc);
 
+		return () => window.removeEventListener("keydown", handleEsc);
+	}, []);
     return (
+        <>
         <tbody className='text-white'>
             {problems.map((problem, idx) => {
                 const difficulyColor =
@@ -25,7 +43,7 @@ const problemTable: React.FC<problemTableProps> = () => {
                         <th className='px-2 py-4 font-medium whitespace-nowrap text-dark-green-s'>
                             <BsCheckCircle size={18} />
                         </th>
-                        <td className='px-6 py-4' style={{ width: "190px" }}>
+                        <td className='px-6 py-4' style={{ width: "210px" }}>
                             (
                             <Link
                                 href={`/problem/${problem.id}`}
@@ -40,9 +58,14 @@ const problemTable: React.FC<problemTableProps> = () => {
                         <td className="px-6 py-4 text-black" style={{ width: "150px" }}>{problem.category}</td>
                         <td className={"px-6 py-4"}>
                             {problem.videoId ? (
-                                <div className='cursor-pointer text-gray-400 hover:text-red-600 justify-center text-center'>
-                                    <AiFillYoutube size={"32"} color="currentColor" /> {/* Use currentColor */}
-                                </div>
+                                <div
+                                className='cursor-pointer text-gray-400 hover:text-red-600 justify-center text-center'
+                                onClick={() =>
+                                    setYoutubePlayer({ isOpen: true, videoId: problem.videoId as string })
+                                }
+                            >
+                                <AiFillYoutube size={"32"} color="currentColor" />
+                            </div>                            
                             ) : (
                                 <p className='text-gray-400'>Coming soon</p>
                             )}
@@ -51,7 +74,29 @@ const problemTable: React.FC<problemTableProps> = () => {
                 );
             })
             }
-        </tbody>
+            </tbody>
+            {youtubePlayer.isOpen && (
+                <tfoot className='fixed top-0 left-0 h-screen w-screen flex items-center justify-center'>
+                    <div
+                        className='bg-black z-10 opacity-70 top-0 left-0 w-screen h-screen absolute'
+                    ></div>
+                    <div className='w-full z-50 h-full px-6 relative max-w-4xl'>
+                        <div className='w-full h-full flex items-center justify-center relative'>
+                            <div className='w-full relative'>
+                                <div className='cursor-pointer absolute -top-16 right-0' onClick={closeModal}>
+                                    <IoClose size={35} />
+                                </div>
+                                <YouTube
+                                    videoId={youtubePlayer.videoId}
+                                    loading='lazy'
+                                    iframeClassName='w-full min-h-[500px]'
+                                />
+                            </div>
+                        </div>
+					</div>
+				</tfoot>
+                )}
+        </>
     )
 }
 export default problemTable;
