@@ -88,4 +88,12 @@ export const problems: Problem[] = [
 		order: 10,
 		videoId: "",
 	},
+    {
+		id: "Longest-Valid-Parentheses",
+		title: "Longest Valid Parentheses",
+		difficulty: "Hard",
+		category: "Stack",
+		order: 11,
+		videoId: "",
+	},
 ];

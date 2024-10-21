@@ -8,40 +8,50 @@ import { collection, doc, getDoc, getDocs, orderBy, query } from "firebase/fires
 import { auth, firestore } from "@/firebase/firebase";
 //import { DBProblem } from "@/utils/types/problem";
 import { useAuthState } from "react-firebase-hooks/auth";
-import {problems} from "@/mockProblems/problems"
+import { problems } from "@/mockProblems/problems"
 type problemTableProps = {
-    
+
 };
 
-const problemTable:React.FC<problemTableProps> = () => {
-    
+const problemTable: React.FC<problemTableProps> = () => {
+
     return (
         <tbody className='text-white'>
-        {problems.map((problem, idx) => {
-            const difficulyColor =
-            problem.difficulty === "Easy"? "text-dark-green-s": problem.difficulty === "Medium"? "text-dark-yellow": "text-dark-pink";
-            return (
-                <tr className="bg-white border-b border-gray-200" key={problem.id}>
-                    <th className='px-2 py-4 font-medium whitespace-nowrap text-dark-green-s'>
-                    <BsCheckCircle size={18} />
+            {problems.map((problem, idx) => {
+                const difficulyColor =
+                    problem.difficulty === "Easy" ? "text-dark-green-s" : problem.difficulty === "Medium" ? "text-dark-yellow" : "text-dark-pink";
+                return (
+                    <tr className="bg-white border-b border-gray-200" key={problem.id}>
+                        <th className='px-2 py-4 font-medium whitespace-nowrap text-dark-green-s'>
+                            <BsCheckCircle size={18} />
                         </th>
                         <td className='px-6 py-4' style={{ width: "190px" }}>
-								(
-									<Link
-										 href={`/problem/${problem.id}`}
-										className='hover:text-blue-600 cursor-pointer text-black'
-										target='_blank'
-									>
-										{problem.title}
-									</Link>
-								)
-							</td>
-                            <td className={`px-6 py-4 ${difficulyColor}`}>{problem.difficulty}</td>
-                        </tr>  
-            );
-        })
-        }
-    </tbody>
+                            (
+                            <Link
+                                href={`/problem/${problem.id}`}
+                                className='hover:text-blue-600 cursor-pointer text-black'
+                                target='_blank'
+                            >
+                                {problem.title}
+                            </Link>
+                            )
+                        </td>
+                        <td className={`px-6 py-4 ${difficulyColor}`}>{problem.difficulty}</td>
+                        <td className="px-6 py-4 text-black" style={{ width: "150px" }}>{problem.category}</td>
+                        <td className={"px-6 py-4"}>
+                            {problem.videoId ? (
+                                <div className='cursor-pointer text-gray-400 hover:text-red-600 justify-center text-center'>
+                                    <AiFillYoutube size={"32"} color="currentColor" /> {/* Use currentColor */}
+                                </div>
+                            ) : (
+                                <p className='text-gray-400'>Coming soon</p>
+                            )}
+                        </td>
+                    </tr>
+                );
+            })
+            }
+        </tbody>
     )
 }
 export default problemTable;
