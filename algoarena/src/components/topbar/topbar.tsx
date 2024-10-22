@@ -2,7 +2,7 @@ import { auth } from "@/firebase/firebase";
 import Link from "next/link";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-//import Logout from "../buttons/logout";
+import Logout from "../Buttons/logout";
 import { useSetRecoilState } from "recoil";
 import { authModalState } from "@/atoms/authModalAtom";
 import Image from "next/image";
@@ -55,7 +55,7 @@ const topbar:React.FC<topbarProps> = () => {
 						</Link>
 					)}
 					{user && (
-						<div className='cursor-pointer group relative'>
+						<button className='cursor-pointer group relative'>
 							<Image src='/avatar.png' alt='Avatar' width={30} height={30} className='rounded-full' />
 							<div
 								className='absolute top-10 left-2/4 -translate-x-2/4  mx-auto bg-white text-turquoise p-2 rounded shadow-lg 
@@ -64,8 +64,9 @@ const topbar:React.FC<topbarProps> = () => {
 							>
 								<p className='text-sm'>{user.email}</p>
 							</div>
-						</div>
+						</button>
 					)}
+                    {user && <Logout className="ml-4"/>}
 			</div>
         </div>
       </nav>      
