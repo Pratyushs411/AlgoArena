@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Topbar from "@/components/topbar/topbar";
 import ProblemTable from "@/components/problemTable/problemTable"
+import Footer from "@/components/footer/footer"
 export default function Home() {
   return (
     <>
@@ -39,6 +40,7 @@ export default function Home() {
               <ProblemTable/>
 					</table>
 				</div>
+				<Footer />
     </main>
     </>
   );

@@ -24,26 +24,27 @@ const topbar:React.FC<topbarProps> = () => {
             <Image src='/logo.png' alt='Logo' height={100} width={100} />
           </Link>
           <div className='flex items-center'>
-			<button
-					className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'
-				>
-					About
-				</button>
-				<button
-					className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'
-				>
-					Problems
-				</button>
-				<button
-					className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'
-				>
-					Contest
-				</button>
-				<button
-					className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'
-				>
-					Discuss
-				</button>
+		  <Link href='/about'>
+            <button className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'>
+              About
+            </button>
+          </Link>
+		  <Link href='/'>
+            <button className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'>
+              Problems
+            </button>
+          </Link>
+		  <Link href='/contest'>
+            <button className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'>
+              Contest
+            </button>
+          </Link>
+		  <Link href='/discuss'>
+            <button className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'>
+              Discuss
+            </button>
+          </Link>
+
                 {!user && (
 						<Link
 							href='/auth'
