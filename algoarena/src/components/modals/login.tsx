@@ -25,6 +25,7 @@ const Login: React.FC = () => {
 		try {
 			const newUser = await signInWithEmailAndPassword(inputs.email, inputs.password);
 			if (!newUser) return;
+      toast.success("Login successful!");
 			router.push("/");
 		} catch (error: any) {
 			toast.error(error.message);

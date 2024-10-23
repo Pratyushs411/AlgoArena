@@ -12,7 +12,9 @@ const Signup: React.FC = () => {
     const handleClick = () => {
         setAuthModalState((prev) => ({ ...prev, type: "login" }));
     };
+
     const [inputs, setInputs] = useState({ email: "", username: "", password: "" });
+    const [passwordError, setPasswordError] = useState<string | null>(null);
     const [
         createUserWithEmailAndPassword,
         user,
@@ -22,7 +24,17 @@ const Signup: React.FC = () => {
     const router = useRouter();
 
     const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+        const { name, value } = e.target;
+        setInputs((prev) => ({ ...prev, [name]: value }));
+
+        // Handle password validation directly here
+        if (name === "password") {
+            if (value.length < 6) {
+                setPasswordError("Password must be at least 6 characters long");
+            } else {
+                setPasswordError(null); // Clear the error if the password is valid
+            }
+        }
     };
 
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -31,15 +43,25 @@ const Signup: React.FC = () => {
             toast.error("Please fill all fields");
             return;
         }
+
+        if (passwordError) {
+            toast.error(passwordError);
+            return;
+        }
+
         try {
             const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password);
+            if (newUser) {
+                toast.success("Signup successful!");
+            }
             if (newUser) {
                 // Save user data to Firestore
                 await setDoc(doc(firestore, "users", newUser.user.uid), {
                     username: inputs.username,
                     email: inputs.email,
                 });
-                router.push("/");
+               
+                    router.push("/");
             }
         } catch (error: any) {
             toast.error(error.message);
@@ -74,7 +96,7 @@ const Signup: React.FC = () => {
                 </label>
                 <input
                     onChange={handleChangeInput}
-                    type='text' // Change to 'text'
+                    type='text'
                     name='username'
                     id='username'
                     className='border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white border-turquoise placeholder-gray-400 text-black'
