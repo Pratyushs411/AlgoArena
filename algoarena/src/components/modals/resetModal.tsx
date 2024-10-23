@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
+import { auth } from "@/firebase/firebase";
 import { FaArrowLeft } from "react-icons/fa";
 import { useSetRecoilState } from "recoil";
 import { authModalState } from "@/atoms/authModalAtom";
@@ -12,9 +13,23 @@ const resetModal: React.FC<resetModalProps> = () => {
     const setAuthModalState = useSetRecoilState(authModalState);
     const handleClick = () => {
         setAuthModalState((prev) => ({ ...prev, type: "login" }));
-      };      
+      }; 
+    const [email, setEmail] = useState("");
+	  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth); 
+    const handleReset = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+		  const success = await sendPasswordResetEmail(email);
+      if(success){
+        alert("email sent")
+      }
+    } 
+    useEffect(() => {
+      if (error) {
+        alert(error.message);
+      }
+    }, [error]);   
     return (
-        <form className="flex flex-col items-start w-full">
+        <form className="flex flex-col items-start w-full" onSubmit={handleReset}>
             <div className="text-center w-full">
                 <h2 className="text-lg font-bold text-black mb-4">Reset Password</h2>
             </div>
@@ -33,6 +48,7 @@ const resetModal: React.FC<resetModalProps> = () => {
             border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
             bg-white border-turquoise placeholder-gray-400 text-black
           '
+          onChange={(e) => setEmail(e.target.value)}
           placeholder='name@company.com'
         />
       </div>
