@@ -1,17 +1,13 @@
-import React from 'react';
-import { authModalState } from "@/atoms/authModalAtom";
-import { useEffect, useState } from "react";
-import { auth, firestore } from "@/firebase/firebase";
+import React, { useEffect, useState } from "react";
+import { auth, firestore } from "@/firebase/firebase"; // Make sure firestore is initialized
 import { useSetRecoilState } from "recoil";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import { doc, setDoc } from "firebase/firestore";
-import { toast } from "react-toastify";
-type signupProps = {
+import { toast } from "react-hot-toast";
+import { authModalState } from "@/atoms/authModalAtom";
 
-};
-
-const Signup: React.FC<signupProps> = () => {
+const Signup: React.FC = () => {
     const setAuthModalState = useSetRecoilState(authModalState);
     const handleClick = () => {
         setAuthModalState((prev) => ({ ...prev, type: "login" }));
@@ -24,27 +20,36 @@ const Signup: React.FC<signupProps> = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const router = useRouter();
-    //const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+
     const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
+
     const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!inputs.email || !inputs.password || !inputs.username) return alert("Please fill all fields");
-		try {
-			const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password);
-			if (!newUser) return; 
-			router.push("/");
-		} catch (error: any) {
-			toast.error(error.message, { position: "top-center" });
-		} finally {
-			toast.dismiss("loadingToast");
-		}
+        if (!inputs.email || !inputs.password || !inputs.username) {
+            toast.error("Please fill all fields");
+            return;
+        }
+        try {
+            const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password);
+            if (newUser) {
+                // Save user data to Firestore
+                await setDoc(doc(firestore, "users", newUser.user.uid), {
+                    username: inputs.username,
+                    email: inputs.email,
+                });
+                router.push("/");
+            }
+        } catch (error: any) {
+            toast.error(error.message);
+        }
     };
+
     useEffect(() => {
-        if (error) alert(error.message);
+        if (error) toast.error("User Already Exists");
     }, [error]);
-    console.log(inputs);
+
     return (
         <form className="flex flex-col items-start w-full" onSubmit={handleRegister}>
             <div className="text-center w-full">
@@ -59,26 +64,20 @@ const Signup: React.FC<signupProps> = () => {
                     type='email'
                     name='email'
                     id='email'
-                    className='
-              border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
-              bg-white border-turquoise placeholder-gray-400 text-black
-            '
+                    className='border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white border-turquoise placeholder-gray-400 text-black'
                     placeholder='name@company.com'
                 />
             </div>
             <div className="w-full mb-4">
-                <label htmlFor='password' className='text-sm font-medium block mb-2 text-black text-left'>
+                <label htmlFor='username' className='text-sm font-medium block mb-2 text-black text-left'>
                     Username
                 </label>
                 <input
                     onChange={handleChangeInput}
-                    type='string'
+                    type='text' // Change to 'text'
                     name='username'
                     id='username'
-                    className='
-              border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
-              bg-white border-turquoise placeholder-gray-400 text-blacks
-            '
+                    className='border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white border-turquoise placeholder-gray-400 text-black'
                     placeholder='johndoe'
                 />
             </div>
@@ -91,30 +90,26 @@ const Signup: React.FC<signupProps> = () => {
                     type='password'
                     name='password'
                     id='password'
-                    className='
-              border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
-              bg-white border-turquoise placeholder-gray-400 text-blacks
-            '
+                    className='border-2 outline-none sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-white border-turquoise placeholder-gray-400 text-black'
                     placeholder='*******'
                 />
             </div>
 
             <button
                 type='submit'
-                className='w-full text-white focus:ring-blue-300 font-medium
-            text-sm px-5 py-2.5 text-center bg-turquoise hover:bg-white hover:text-turquoise
-            bg-turquoise text-white rounded-md text-sm font-medium hover:border-2 hover:border-turquoise border-2 border-transparent
-                  transition duration-300 ease-in-out'
+                className='w-full text-white focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center bg-turquoise border border-turquoise hover:bg-white hover:text-turquoise rounded-md transition duration-300 ease-in-out'
+                disabled={loading}
             >
                {loading ? "Registering..." : "Sign Up"}
             </button>
             <div className='text-sm font-medium text-black text-left mt-2'>
-                Already have a account?{" "}
+                Already have an account?{" "}
                 <a href='#' className='text-blue-700 hover:underline' onClick={handleClick}>
                     Log In
                 </a>
             </div>
         </form>
     );
-}
+};
+
 export default Signup;

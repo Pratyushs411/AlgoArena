@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useSetRecoilState } from "recoil";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 type LoginProps = {};
 
 const Login: React.FC = () => {
@@ -21,20 +21,20 @@ const Login: React.FC = () => {
 
 	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (!inputs.email || !inputs.password) return alert("Please fill all fields");
+		if (!inputs.email || !inputs.password) return toast.error("Please fill all fields");
 		try {
 			const newUser = await signInWithEmailAndPassword(inputs.email, inputs.password);
 			if (!newUser) return;
 			router.push("/");
 		} catch (error: any) {
-			alert(error.message);
+			toast.error(error.message);
 		}
 	};
 
 	useEffect(() => {
     if (error) {
       console.log(error); // Log the error to inspect its structure
-      if(error) alert(error.message);
+      if(error) toast.error("Invalid-Credentials");
     }
   }, [error]);
   
