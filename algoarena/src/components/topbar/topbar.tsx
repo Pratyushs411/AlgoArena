@@ -56,7 +56,7 @@ const topbar:React.FC<topbarProps> = () => {
 						</Link>
 					)}
 					{user && (
-						<button className='cursor-pointer group relative'>
+						<Link href = "/profile" className='cursor-pointer group relative'>
 							<Image src='/avatar.png' alt='Avatar' width={30} height={30} className='rounded-full' />
 							<div
 								className='absolute top-10 left-2/4 -translate-x-2/4  mx-auto bg-white text-turquoise p-2 rounded shadow-lg 
@@ -65,7 +65,7 @@ const topbar:React.FC<topbarProps> = () => {
 							>
 								<p className='text-sm'>{user.email}</p>
 							</div>
-						</button>
+						</Link>
 					)}
                     {user && <Logout className="ml-4"/>}
 			</div>

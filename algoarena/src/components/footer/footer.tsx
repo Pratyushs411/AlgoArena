@@ -1,7 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { FaFacebook } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-800 text-white py-8">
@@ -12,27 +14,27 @@ const Footer: React.FC = () => {
             <h3 className="font-bold text-lg mb-2">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/home1" className="hover:text-teal-500">
+                <Link href="/about" className="hover:text-teal-500">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/home2" className="hover:text-teal-500">
+                <Link href="/" className="hover:text-teal-500">
                   Problems
                 </Link>
               </li>
               <li>
-                <Link href="/home3" className="hover:text-teal-500">
+                <Link href="/contest" className="hover:text-teal-500">
                   Contest
                 </Link>
               </li>
               <li>
-                <Link href="/home4" className="hover:text-teal-500">
+                <Link href="/discuss" className="hover:text-teal-500">
                   Discuss
                 </Link>
               </li>
               <li>
-                <Link href="/home5" className="hover:text-teal-500">
+                <Link href="/profile" className="hover:text-teal-500">
                   Profile
                 </Link>
               </li>
@@ -44,13 +46,13 @@ const Footer: React.FC = () => {
             <h3 className="font-bold text-lg mb-2">Follow Us</h3>
             <div className="flex space-x-4">
               <Link href="#" className="hover:text-teal-500">
-                <Image src="" alt="Facebook" width={24} height={24} />
+              <FaFacebook />
               </Link>
               <Link href="#" className="hover:text-teal-500">
-                <Image src="" alt="Twitter" width={24} height={24} />
+              <FaTwitter />
               </Link>
               <Link href="#" className="hover:text-teal-500">
-                <Image src="" alt="Instagram" width={24} height={24} />
+              <AiFillInstagram />
               </Link>
             </div>
           </div>
