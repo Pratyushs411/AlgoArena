@@ -13,11 +13,11 @@ const Navbar: React.FC<NavbarProps> = ({ style }) => {
 				<Image src='/logo.png' alt='AlgoArena' height={100} width={200} />
 			</Link>
 			<div className='flex items-center'>
-			<button
+			<Link href="/about"
 					className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-xl font-bold border-transparent'
 				>
 					About
-				</button>
+				</Link>
 				<button
 					className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-xl font-bold border-transparent'
 				>
