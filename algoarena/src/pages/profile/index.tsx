@@ -9,7 +9,7 @@ const Profile: React.FC = () => {
     return (
         <>
             <Topbar />
-            <div className="bg-gradient-to-b from-white to-turquoise-100 min-h-screen">
+            <div className="bg-gradient-to-b from-white to-teal-100 min-h-screen">
                 <div className="flex flex-col items-center pt-12">
                     {/* Profile and Rating Section */}
                     <div className="flex flex-row justify-center w-full max-w-screen-lg">
@@ -18,8 +18,8 @@ const Profile: React.FC = () => {
                             <div className="flex items-center mb-4">
                                 <div className="w-20 h-20 bg-gray-300 rounded-full"></div>
                                 <div className="ml-4">
-                                    <h2 className="text-2xl font-bold text-turquoise-600">Somil Kumar</h2>
-                                    <p className="text-gray-500">Username: <span className="font-semibold text-turquoise-500">somilkumar</span></p>
+                                    <h2 className="text-2xl font-bold text-teal-600">Somil Kumar</h2>
+                                    <p className="text-gray-500">Username: <span className="font-semibold text-teal-500">somilkumar</span></p>
                                 </div>
                             </div>
                             <hr className="my-4" />
@@ -27,7 +27,7 @@ const Profile: React.FC = () => {
                                 <p><strong>Country:</strong> India</p>
                                 <p><strong>Status:</strong> Student</p>
                                 <p><strong>Institution:</strong> Thapar Institute of Engineering and Technology Patiala, Punjab</p>
-                                <p><strong>AlgoArena Pro Plan:</strong> No Active Plan. <a href="#" className="text-turquoise-500">View Details</a></p>
+                                <p><strong>AlgoArena Pro Plan:</strong> No Active Plan. <a href="#" className="text-blue-500">View Details</a></p>
                             </div>
                         </div>
 
@@ -62,13 +62,14 @@ const Profile: React.FC = () => {
                     </div>
 
                     {/* Turquoise Line after Profile */}
-                    <hr className="w-full border-t-4 border-turquoise-500 my-4" />
+                    <hr className="w-11/12 border-t-4 border-teal-500 my-4 mx-auto" />
+
 
                     {/* Heatmap Section */}
                     <div className="w-full mt-4 flex justify-center">
                         <div className="bg-white shadow-lg rounded-lg p-6 w-2/3">
-                            <h2 className="text-2xl font-semibold mb-4 text-turquoise-600">Activity Heat Map</h2>
-                            <hr className="border-t-2 border-turquoise-500 mb-4" />
+                            <h2 className="text-2xl font-semibold mb-4 text-teal-600">Activity Heat Map</h2>
+                            <hr className="border-t-2 border-teal-500 mb-4" />
                             
                             {/* Heatmap grid */}
                             <div className="grid grid-cols-8 gap-2">
