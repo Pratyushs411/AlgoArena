@@ -1,8 +1,8 @@
-import React from 'react';
 import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/topbar/topbar'; // Make sure the Navbar is correctly imported
 import Footer from '@/components/footer/footer'; // Importing Footer component
-
+import styles from './about.module.css';
 // Team Members Data
 const teamMembers = [
   {
@@ -22,62 +22,100 @@ const teamMembers = [
     description: 'Ruhani is a talented project manager who brings designs to life. Her organizational skills and keen eye for design help in delivering projects on time and within budget.',
   },
 ];
-
+const gifs = [
+  { src: '/meta.gif', alt: 'Meta', duration: 3800 },     // duration in ms (3 seconds)
+  { src: '/apple.gif', alt: 'Apple', duration: 3000 },
+  { src: '/amazon.gif', alt: 'Amazon', duration: 3000 },
+  { src: '/netflix.gif', alt: 'Netflix', duration: 3000 },
+  { src: '/google.gif', alt: 'Google', duration: 1800 },
+];
 const AboutPage: React.FC = () => {
+  const [currentGifIndex, setCurrentGifIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+  useEffect(() => {
+    const fadeOutDuration = 500;
+    const currentGifDuration = gifs[currentGifIndex].duration - fadeOutDuration;
+
+    const fadeTimer = setTimeout(() => setIsFading(true), currentGifDuration);
+    const gifTimer = setTimeout(() => {
+      setIsFading(false);
+      setCurrentGifIndex((prevIndex) => (prevIndex + 1) % gifs.length);
+    }, gifs[currentGifIndex].duration);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(gifTimer);
+    };
+  }, [currentGifIndex]);
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
       <Navbar />
-
-      {/* Main content */}
-      <section className="container mx-auto px-6 py-16 flex items-center justify-between">
+      <section className="container mx-auto px-6 py-8 flex  justify-between mt-4">
         {/* Left side - Our Mission Text */}
         <div className="w-1/2">
-          <h1 className="text-4xl font-bold text-teal-500 mb-6">Our Mission</h1>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Hackney started as a small interior design firm in downtown Michigan, aiming to help 
-            home buyers make do with the new space that they had acquired. It soon became obvious 
-            that it would make sense to help our clients see beyond the walls and floor plans, and 
-            be there with them from the get-go.
+          <h1 className="text-4xl font-bold text-turquoise mb-6">About Us</h1>
+          <p className="text-gray-600 text-lg leading-relaxed text-justify">
+          Welcome to AlgoArena, a dynamic and inclusive coding platform built to fuel your passion for programming, hone your skills, and connect you with a vibrant community of learners. AlgoArena is the right place for anybody who wants to start with the world of programming and software development. AlgoArena will provide you with structured content with ample practice problems to solidify your knowledge. Our team is committed to keeping AlgoArena at the forefront of coding education and career development. We regularly update our content, features, and community resources to reflect the latest industry trends and standards.
           </p>
         </div>
 
         {/* Right side - Image */}
-        <div className="w-1/2 flex justify-end">
-          <Image 
-            src="/quote.png"  // Ensure this image is in the public folder
+        <div className="w-1/2 flex justify-end rounded-lg">
+          <Image
+            src="/code1.gif"  // Ensure this image is in the public folder
+            alt="About Us Image"
+            width={450}
+            height={400}
+            className="rounded-lg shadow-lg"
+          />
+        </div>
+      </section>
+      <div className="h-1 bg-teal-500 my-16 mx-6 rounded-full" />
+      <section className="container mx-auto px-6 py-8 flex  justify-between">
+        <div className="w-1/2 flex justify-start">
+          <Image
+            src="/eg.gif"  // Ensure this image is in the public folder
             alt="About Us Image"
             width={500}
             height={500}
             className="rounded-lg shadow-lg"
           />
         </div>
+        <div className="w-1/2">
+          <h1 className="text-4xl font-bold text-turquoise mb-6">Our Mission</h1>
+          <p className="text-gray-600 text-lg leading-relaxed text-justify">
+          Our mission is to empower developers at all skill levels by offering an inclusive platform for engaging, real-world coding competitions that foster continuous growth, creativity, and technical excellence. We aim to bring together a global community of coders, creating opportunities to learn, innovate, and collaborate across diverse backgrounds. By providing fair, accessible challenges, we strive to nurture future-ready skills, prepare coders for impactful careers, and inspire a tech landscape that values skill, passion, and potential. Through every contest, we champion diversity, resilience, and a shared commitment to innovation.
+          </p>
+        </div>
+
+        {/* Right side - Image */}
+      
       </section>
 
       {/* Separator */}
       <div className="h-1 bg-teal-500 my-16 mx-6 rounded-full" />
 
       {/* Second section - Our Goal */}
-      <section className="container mx-auto px-6 py-16 flex items-center justify-between">
-        {/* Left side - Image */}
-        <div className="w-1/2 flex justify-start">
-          <Image 
-            src="/hero.png"  // Ensure you have an image for this as well in the public folder
-            alt="Our Goal Image"
-            width={500}
-            height={500}
-            className="rounded-lg shadow-lg"
-          />
-        </div>
-
-        {/* Right side - Our Goal Text */}
+      <section className="container mx-auto px-6 py-8 flex items-center justify-between">
         <div className="w-1/2 pl-12">
           <h1 className="text-4xl font-bold text-teal-500 mb-6">Our Goal</h1>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Our goal is to ensure that every client we work with finds a space that truly feels like home. 
-            We strive to create designs and solutions that not only meet their immediate needs but are also 
-            adaptable for the future.
+          <p className="text-gray-600 text-lg leading-relaxed text-justify">
+          At AlgoArena, our primary goal is to democratize coding education and make it accessible to everyone, regardless of their background or experience level. We strive to create a comprehensive learning environment that fosters growth, creativity, and collaboration among aspiring and experienced developers alike. By offering diverse resources, including coding challenges, interactive tutorials, and community support, we aim to enhance problem-solving skills and technical knowledge. In addition to skill development, we are committed to helping individuals land their dream jobs at leading tech companies. We provide tailored resources such as mock interviews, resume building, and career coaching to bridge the gap between education and industry demands. Our vision is to cultivate a global community where knowledge is shared, innovation thrives, and every member feels empowered to pursue their coding journey with confidence, ultimately achieving their professional aspirations.
           </p>
+        </div>
+        <div className="container mx-auto px-6 flex items-center justify-end w-1/2">
+        <div
+        className={`${styles.fadeContainer} ${isFading ? styles.fadeOut : styles.fadeIn} rounded-lg`}
+      >
+        <Image
+        src={gifs[currentGifIndex].src}
+        alt={gifs[currentGifIndex].alt}
+        width={500}
+        height={500}
+        className={`rounded-lg shadow-lg flex justify-end ${styles.img}`}
+      />
+      </div>
         </div>
       </section>
 
