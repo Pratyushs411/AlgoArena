@@ -84,7 +84,7 @@ const AboutPage: React.FC = () => {
           />
         </div>
       </section>
-      <div className="h-1 bg-teal-500 my-16 mx-6 rounded-full" />
+      <div className="h-1 bg-turquoise my-16 mx-6 rounded-full" />
       <section className="container mx-auto px-6 py-8 flex  justify-between">
         <div className="w-1/2 flex justify-start">
           <Image
@@ -107,12 +107,12 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Separator */}
-      <div className="h-1 bg-teal-500 my-16 mx-6 rounded-full" />
+      <div className="h-1 bg-turquoise my-16 mx-6 rounded-full" />
 
       {/* Second section - Our Goal */}
       <section className="container mx-auto px-6 py-8 flex items-center justify-between">
         <div className="w-1/2 pl-12">
-          <h1 className="text-4xl font-bold text-teal-500 mb-6">Our Goal</h1>
+          <h1 className="text-4xl font-bold text-turquoise mb-6">Our Goal</h1>
           <p className="text-gray-600 text-lg leading-relaxed text-justify">
             At AlgoArena, our primary goal is to democratize coding education and make it accessible to everyone, regardless of their background or experience level. We strive to create a comprehensive learning environment that fosters growth, creativity, and collaboration among aspiring and experienced developers alike. By offering diverse resources, including coding challenges, interactive tutorials, and community support, we aim to enhance problem-solving skills and technical knowledge. In addition to skill development, we are committed to helping individuals land their dream jobs at leading tech companies. We provide tailored resources such as mock interviews, resume building, and career coaching to bridge the gap between education and industry demands. Our vision is to cultivate a global community where knowledge is shared, innovation thrives, and every member feels empowered to pursue their coding journey with confidence, ultimately achieving their professional aspirations.
           </p>
@@ -133,17 +133,17 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Separator */}
-      <div className="h-1 bg-teal-500 my-16 mx-6 rounded-full" />
+      <div className="h-1 bg-turquoise my-8 mx-6 rounded-full" />
       <section className="container mx-auto px-6 py-8">
-        <h1 className="text-4xl font-bold text-teal-500 mb-8 text-center">Meet the Team</h1>
+        <h1 className="text-4xl font-bold text-turquoise mb-12 text-center">Meet the Team</h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {teamMembers.map((member) => (
             <div key={member.name} className="flex flex-col items-center bg-white rounded-lg shadow-lg p-6 transition-transform transform hover:scale-105">
               <div className="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center mb-4">
                 <span className="text-gray-400">Photo</span>
               </div>
-              <h2 className="text-xl font-semibold text-teal-500">{member.name}</h2>
-              <h3 className="text-l text-teal-500 mb-2">{member.role}</h3>
+              <h2 className="text-xl font-semibold text-turquoise">{member.name}</h2>
+              <h3 className="text-l text-turquoise mb-2">{member.role}</h3>
               <section className="flex justify-center items-center mb-2">
                 <a
                   className="group flex justify-center p-2 mr-2 rounded-md drop-shadow-xl bg-gradient-to-r from-gray-800 to-black text-white font-semibold hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
