@@ -15,7 +15,7 @@ const teamMembers = [
   },
   {
     name: 'Somil Kumar',
-    role: 'Designer',
+    role: 'Developer/Designer',
     github : 'https://github.com/ksomil2562',
     linkedin : 'https://www.linkedin.com/in/somil-kumar-4307a0258/',
     description: 'Somil is a talented designer dedicated to crafting visually appealing and intuitive designs,engaging user experience.'
