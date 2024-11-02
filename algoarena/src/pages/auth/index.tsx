@@ -6,6 +6,7 @@ import { auth } from "@/firebase/firebase";
 import { useRecoilValue } from "recoil";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Footer from "@/components/footer/footer"
 import Image from "next/image";
 type AuthPageProp = {};
 
@@ -46,6 +47,7 @@ const AuthPage: React.FC<AuthPageProp> = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }

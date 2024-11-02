@@ -1,10 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { auth } from "@/firebase/firebase";
+import { useSetRecoilState } from "recoil";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { FaFacebook } from "react-icons/fa";
+import { authModalState } from "@/atoms/authModalAtom";
 import { FaTwitter } from "react-icons/fa";
+import { useRouter } from "next/router";
 import { AiFillInstagram } from "react-icons/ai";
 const Footer: React.FC = () => {
+  const [user] = useAuthState(auth);
+	const setAuthModalState = useSetRecoilState(authModalState);
+	const router = useRouter();
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto px-6">
@@ -24,17 +32,17 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/contest" className="hover:text-teal-500">
+                <Link href={user ? '/contest' : '/auth'} className="hover:text-teal-500">
                   Contest
                 </Link>
               </li>
               <li>
-                <Link href="/discuss" className="hover:text-teal-500">
+                <Link href={user ? '/discuss' : '/auth'} className="hover:text-teal-500">
                   Discuss
                 </Link>
               </li>
               <li>
-                <Link href="/profile" className="hover:text-teal-500">
+                <Link href={user ? '/profile' : '/auth'} className="hover:text-teal-500">
                   Profile
                 </Link>
               </li>
