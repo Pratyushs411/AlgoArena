@@ -163,8 +163,6 @@ const AboutPage: React.FC = () => {
           ))}
         </div>
       </section>
-
-      {/* Footer */}
       <Footer />
     </div>
   );

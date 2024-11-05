@@ -34,12 +34,12 @@ const topbar:React.FC<topbarProps> = () => {
               Problems
             </button>
           </Link>
-		  <Link href='/contest'>
+		  <Link href={user ? '/contest' : '/auth'}>
             <button className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'>
               Contest
             </button>
           </Link>
-		  <Link href='/discuss'>
+		  <Link href={user ? '/discuss' : '/auth'}>
             <button className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'>
               Discuss
             </button>
