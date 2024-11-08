@@ -12,8 +12,8 @@ const teamMembers = [
     role: 'Developer/Designer',
     github: 'https://github.com/Pratyushs411',
     linkedin: 'https://www.linkedin.com/in/pratyushsharma411/',
-    description: 'Pratyush is a skilled developer and designer who combines technical expertise with creative flair to build engaging and user-friendly websites.',
-    photo: '/team/pratyush.jpg', // Ensure this image is in the public/team folder
+    description: 'Developer of AlgoArena, a coding platform fully built from the ground up to foster coding culture and empower learning through hands-on practice.',
+    photo: '/pratyush.png', // Ensure this image is in the public/team folder
   },
   {
     name: 'Somil Kumar',
@@ -25,11 +25,11 @@ const teamMembers = [
   },
   {
     name: 'Dilpreet Singh',
-    role: 'Documentation',
-    github: '#',
+    role: 'Designer/Documentation',
+    github: 'https://github.com/dilpreetsingh-28/dilpreetsingh-28',
     linkedin: 'https://www.linkedin.com/in/dilpreet-singh-4742031b6/',
-    description: 'Dilpreet is a versatile designer and documentation specialist who combines creativity with clarity.',
-    photo: '/team/dilpreet.jpg', // Replace with actual path
+    description: 'A key contributor to AlgoArena, Dilpreet is a versatile designer and documentation specialist who combines creativity and clarity.',
+    photo: '/dilpreet.png', // Replace with actual path
   },
   {
     name: 'Ruhani Grover',
