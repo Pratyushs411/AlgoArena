@@ -12,7 +12,7 @@ const teamMembers = [
     role: 'Developer/Designer',
     github: 'https://github.com/Pratyushs411',
     linkedin: 'https://www.linkedin.com/in/pratyushsharma411/',
-    description: 'Developer of AlgoArena, a coding platform fully built from the ground up to foster coding culture and empower learning through hands-on practice.',
+    description: 'Pratyush is a creative and innovative developer driving AlgoArena’s growth, blending design and technology to foster coding culture and empower learning.',
     photo: '/pratyush.png', // Ensure this image is in the public/team folder
   },
   {
