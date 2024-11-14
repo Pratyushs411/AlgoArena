@@ -25,11 +25,19 @@ const teamMembers = [
   },
   {
     name: 'Dilpreet Singh',
+<<<<<<< Updated upstream
     role: 'Designer/Documentation',
     github: 'https://github.com/dilpreetsingh-28/dilpreetsingh-28',
     linkedin: 'https://www.linkedin.com/in/dilpreet-singh-4742031b6/',
     description: 'A key contributor to AlgoArena, Dilpreet is a versatile designer and documentation specialist who combines creativity and clarity.',
     photo: '/dilpreet.png', // Replace with actual path
+=======
+    role: 'Documentation/Design',
+    github: '#',
+    linkedin: 'https://www.linkedin.com/in/dilpreet-singh-4742031b6/',
+    description: 'A key contributor to Algo Arena, Dilpreet is a versatile designer and decumentation specialist who combines creativity and clarity.',
+    photo: '/dilpreet.jpg', // Replace with actual path
+>>>>>>> Stashed changes
   },
   {
     name: 'Ruhani Grover',
