@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/topbar/topbar'; // Ensure Navbar is correctly imported
 import Footer from '@/components/footer/footer'; // Importing Footer component
 import styles from './about.module.css';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin ,FaUniversity } from 'react-icons/fa';
+import { SiGooglescholar } from "react-icons/si";
 
 // Team Members Data
 const teamMembers = [
@@ -45,7 +46,7 @@ const teamMembers = [
     github: '#',
     linkedin: 'https://www.linkedin.com/in/ruhani-grover-333583245/',
     description: 'Ruhani is a dedicated documentation specialist who excels in creating clear and concise materials.',
-    photo: '/team/ruhani.jpg', // Replace with actual path
+    photo: '/ruhani.jpeg', // Replace with actual path
   },
 ];
 
@@ -188,6 +189,60 @@ const AboutPage: React.FC = () => {
           ))}
         </div>
       </section>
+      <div className="h-1 bg-turquoise my-8 mx-6 rounded-full" />
+      <section className="container mx-auto px-6 py-8">
+  <h1 className="text-4xl font-bold text-turquoise mb-8 text-center">Our Mentor</h1>
+  
+  <div className="flex flex-col md:flex-row items-center bg-white rounded-lg shadow-lg p-6 gap-8 mx-auto w-full transition-transform transform hover:scale-105">
+    
+    {/* Image Container */}
+    <div className="flex-shrink-0 w-56 h-56 rounded-full overflow-hidden shadow-md">
+      <Image
+        src='/Somill.jpg'
+        alt='Dr. Anamika Sharma photo'
+        width={224}
+        height={224}
+        className="object-cover w-full h-full"
+      />
+    </div>
+    
+    {/* Description Container */}
+    <div className="flex-grow text-center md:text-left md:w-2/3 lg:w-1/2">
+      <h1 className="text-2xl font-bold text-turquoise">Dr. Anamika Sharma</h1>
+      <h2 className="text-lg text-gray-600 mb-2 text-turquoise">Assistant Professor, TIET</h2>
+      <section className="flex justify-start items-center mb-2">
+                <a
+                  className="group flex justify-center p-2 mr-2 rounded-md drop-shadow-xl bg-gradient-to-r from-gray-800 to-black text-white font-semibold hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+                  href='/'
+                >
+                  <FaGithub />
+                </a>
+                <a
+                  className="group flex justify-center p-2 rounded-md drop-shadow-xl bg-[#0077b5] from-gray-800 text-white font-semibold hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413]"
+                  href='/'
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  className="group flex justify-center p-2 rounded-md drop-shadow-xl bg-[#ff0000] from-gray-800 text-white font-semibold hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413] ml-2"
+                  href='https://csed.thapar.edu/facultydetails/MTUxMg=='
+                >
+                 <FaUniversity />
+                </a>
+                <a
+                  className="group flex justify-center p-2 rounded-md drop-shadow-xl bg-[#4682B4] from-gray-800 text-white font-semibold hover:rounded-[50%] transition-all duration-500 hover:from-[#331029] hover:to-[#310413] ml-2"
+                  href='https://scholar.google.co.in/citations?user=I4OL54oAAAAJ&hl=en'
+                >
+                 <SiGooglescholar />
+                </a>
+              </section>
+      <p className="text-gray-600">
+        Dr. Anamika Sharma, an Assistant Professor at Thapar University, specializes in wireless sensor networks for surveillance and intrusion detection. She has published widely in high-impact journals like IEEE Sensor Journal and Springer’s Wireless Networks, and has contributed a book chapter on mobile intruder detection. She also serves as a reviewer for leading journals in her field.
+      </p>
+    </div>
+  </div>
+</section>
+
       <Footer />
     </div>
   );
