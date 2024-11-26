@@ -9,7 +9,7 @@ export type Problem = {
 
 export const problems: Problem[] = [
 	{
-		id: "two-sum",
+		id: "1",
 		title: "Two Sum",
 		difficulty: "Easy",
 		category: "Array",

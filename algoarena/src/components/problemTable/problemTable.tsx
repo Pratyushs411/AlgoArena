@@ -46,7 +46,7 @@ const problemTable: React.FC<problemTableProps> = () => {
                         <td className='px-6 py-4' style={{ width: "210px" }}>
                             (
                             <Link
-                                href={`/problem/${problem.id}`}
+                                href={`/problems/${problem.id}`}
                                 className='hover:text-blue-600 cursor-pointer text-black'
                                 target='_blank'
                             >

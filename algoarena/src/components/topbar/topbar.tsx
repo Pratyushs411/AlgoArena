@@ -9,20 +9,48 @@ import Image from "next/image";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { BsList } from "react-icons/bs";
 import { useRouter } from "next/router";
+import Timer from "../Timer/Timer";
+
 type topbarProps = {
-    
+    problemPage?:boolean;
 };
 
-const topbar:React.FC<topbarProps> = () => {
+const topbar:React.FC<topbarProps> = ({problemPage}) => {
     const [user] = useAuthState(auth);
 	const setAuthModalState = useSetRecoilState(authModalState);
 	const router = useRouter();
     return (
         <nav className='relative flex h-[60px] w-full shrink-0 items-center justify-between px-5 bg-white text-black shadow-md'>
-        <div className='flex w-full items-center justify-between max-w-[1200px] mx-auto'>
+        <div className={`flex w-full items-center justify-between ${!problemPage ? "max-w-[1200px] mx-auto" : ""}`}>
           <Link href='/' className='flex items-center'>
             <Image src='/logo.png' alt='Logo' height={100} width={100} />
           </Link>
+
+          {problemPage && (
+					<div className='flex items-center gap-4 flex-1 justify-center'>
+						<div
+							className='flex items-center justify-center rounded bg-dark-fill-3 hover:bg-dark-fill-2 h-8 w-8 cursor-pointer'
+						>
+					 		<FaChevronLeft />
+						</div>
+            <Link href="/" className='flex items-center gap-2 font-medium max-w-[170px] text-dark-gray-8 cursor-pointer'>
+            <div>
+            <span className="text-turquoise">
+              <BsList />
+              </span>
+            </div>
+            <p className="text-turquoise">Problem List</p>
+            </Link>
+            <div
+							className='flex items-center justify-center rounded bg-dark-fill-3 hover:bg-dark-fill-2 h-8 w-8 cursor-pointer'
+						>
+							<FaChevronRight />
+						</div>
+            
+            </div>  
+            )}
+            {problemPage && <Timer/>}
+
           <div className='flex items-center'>
 		  <Link href='/about'>
             <button className='bg-white text-black px-2 py-1 sm:px-4 rounded-md text-l font-bold border-transparent'>
