@@ -23,15 +23,15 @@ const teamMembers = [
     github: 'https://github.com/ksomil2562',
     linkedin: 'https://www.linkedin.com/in/somil-kumar-4307a0258/',
     description: 'Leading Algo Arena development to build a vibrant coding community at Thapar, blending innovation with modern design.',
-    photo: '/somill.jpg', // Replace with actual path
+    photo: '/somill.jpg',
   },
   {
     name: 'Dilpreet Singh',
     role: 'Designer/Documentation',
     github: 'https://github.com/dilpreetsingh-28/dilpreetsingh-28',
     linkedin: 'https://www.linkedin.com/in/dilpreet-singh-4742031b6/',
-    description: 'A key contributor to AlgoArena, Dilpreet is a versatile designer and documentation specialist who combines creativity and clarity.',
-    photo: '/dilpreet.png', // Replace with actual path
+    description: 'A key contributor to AlgoArena, Dilpreet is a versatile designer and a documentation specialist who combines creativity and clarity.',
+    photo: '/dilpreet.png',
   },
   {
     name: 'Ruhani Grover',
