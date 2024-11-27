@@ -5,6 +5,7 @@ export type Problem = {
 	category: string;
 	order: number;
 	videoId?: string;
+	pid:string;
 };
 
 export const problems: Problem[] = [
@@ -15,6 +16,7 @@ export const problems: Problem[] = [
 		category: "Array",
 		order: 1,
 		videoId: "UXDSeD9mN-k",
+		pid:"two-sum"
 	},
 	{
 		id: "reverse-linked-list",
@@ -23,6 +25,7 @@ export const problems: Problem[] = [
 		category: "Linked List",
 		order: 2,
 		videoId: "D2vI2DNJGd8",
+		pid: "reverse-linked-list",
 	},
 	{
 		id: "jump-game",
@@ -31,6 +34,7 @@ export const problems: Problem[] = [
 		category: "Dynamic Programming",
 		order: 3,
 		videoId: "",
+		pid: "jump-game",
 	},
 	{
 		id: "valid-parentheses",
@@ -39,6 +43,7 @@ export const problems: Problem[] = [
 		category: "Stack",
 		order: 4,
 		videoId: "cHT6sG_hUZI",
+		pid: "valid-parentheses",
 	},
 	{
 		id: "search-a-2d-matrix",
@@ -47,6 +52,7 @@ export const problems: Problem[] = [
 		category: "Binary Search",
 		order: 5,
 		videoId: "JXU4Akft7yk",
+		pid: "search-a-2d-matrix",
 	},
 	{
 		id: "container-with-most-water",
@@ -55,6 +61,7 @@ export const problems: Problem[] = [
 		category: "Two Pointers",
 		order: 6,
 		videoId: "",
+		pid: "container-with-most-water",
 	},
 	{
 		id: "merge-intervals",
@@ -63,6 +70,7 @@ export const problems: Problem[] = [
 		category: "intervals",
 		order: 7,
 		videoId: "",
+		pid: "merge-intervals",
 	},
 	{
 		id: "maximum-depth-of-binary-tree",
@@ -71,6 +79,7 @@ export const problems: Problem[] = [
 		category: "Tree",
 		order: 8,
 		videoId: "eD3tmO66aBA",
+		pid: "maximum-depth-of-binary-tree",
 	},
 	{
 		id: "best-time-to-buy-and-sell-stock",
@@ -79,6 +88,7 @@ export const problems: Problem[] = [
 		category: "Array",
 		order: 9,
 		videoId: "",
+		pid: "best-time-to-buy-and-sell-stock",
 	},
 	{
 		id: "subsets",
@@ -87,6 +97,7 @@ export const problems: Problem[] = [
 		category: "Backtracking",
 		order: 10,
 		videoId: "",
+		pid: "subsets",
 	},
     {
 		id: "Longest-Valid-Parentheses",
@@ -95,5 +106,6 @@ export const problems: Problem[] = [
 		category: "Stack",
 		order: 11,
 		videoId: "VdQuwtEd10M",
+		pid: "Longest-Valid-Parentheses",
 	},
 ];
