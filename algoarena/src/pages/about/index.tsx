@@ -191,7 +191,7 @@ const AboutPage: React.FC = () => {
     {/* Image Container */}
     <div className="flex-shrink-0 w-56 h-56 rounded-full overflow-hidden shadow-md">
       <Image
-        src='/Somill.jpg'
+        src='/mam.jpg'
         alt='Dr. Anamika Sharma photo'
         width={224}
         height={224}

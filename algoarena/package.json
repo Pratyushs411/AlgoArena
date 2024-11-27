@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@uiw/codemirror-theme-vscode": "^4.23.6",
+    "@uiw/react-codemirror": "^4.23.6",
     "firebase": "^10.14.1",
     "next": "14.2.15",
     "react": "^18",
