@@ -18,22 +18,22 @@ const PreferenceNav: React.FC<PreferenceNavProps> = () => {
       {/* Right Section */}
       <div className="flex items-center m-2">
         {/* Settings Button */}
-        <button className="relative rounded px-3 py-1.5 font-medium items-center transition-all focus:outline-none inline-flex ml-auto p-1 mr-2 hover:bg-teal-100 group">
-          <div className="h-4 w-4 text-teal-600 font-bold text-lg">
-            <AiOutlineSetting />
+        <button className="group flex items-center justify-start w-8 h-8 bg-turquoise rounded-lg cursor-pointer relative overflow-hidden transition-all duration-500 shadow-lg hover:w-24 active:translate-x-1 active:translate-y-1 ml-4">
+          <div className="flex items-center justify-center w-full transition-all duration-500 group-hover:justify-start group-hover:px-3 text-white">
+          <AiOutlineSetting/>
           </div>
-          <div className="absolute w-auto p-2 text-sm min-w-max translate-x-3 right-0 top-5 z-10 rounded-md shadow-md text-white bg-teal-600 origin-center scale-0 transition-all duration-100 ease-linear group-hover:scale-100">
+          <div className="absolute right-2 transform translate-x-full opacity-0 text-white text-medium  transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100">
             Settings
           </div>
         </button>
 
         {/* Full Screen Button */}
-        <button className="relative rounded px-3 py-1.5 font-medium items-center transition-all focus:outline-none inline-flex ml-auto p-1 mr-2 hover:bg-teal-100 group">
-          <div className="h-4 w-4 text-teal-600 font-bold text-lg">
-            <AiOutlineFullscreen />
+        <button className="group flex items-center justify-start w-8 h-8 bg-turquoise rounded-lg cursor-pointer relative overflow-hidden transition-all duration-500 shadow-lg hover:w-28 active:translate-x-1 active:translate-y-1 ml-4">
+          <div className="flex items-center justify-center w-full transition-all duration-500 group-hover:justify-start group-hover:px-3 text-white">
+          <AiOutlineFullscreen/>
           </div>
-          <div className="absolute w-auto p-2 text-sm min-w-max translate-x-3 right-0 top-5 z-10 rounded-md shadow-md text-white bg-teal-600 origin-center scale-0 transition-all duration-100 ease-linear group-hover:scale-100">
-            Full Screen
+          <div className="absolute right-2 transform translate-x-full opacity-0 text-white text-medium  transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100">
+            FullScreen
           </div>
         </button>
       </div>

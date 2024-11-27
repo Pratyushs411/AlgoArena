@@ -7,11 +7,11 @@ type ProblemDescriptionProps = {};
 
 const ProblemDescription: React.FC<ProblemDescriptionProps> = () => {
   return (
-    <div className="bg-white min-h-screen text-teal-800">
+    <div className="bg-white min-h-screen text-teal-800 ">
       {/* Tabs */}
-      <div className="flex h-12 items-center border-b border-teal-200 bg-white text-teal-600">
+      <div className="flex h-12 items-center border-b-2 border-teal-200 bg-white text-teal-600">
         <div
-          className="rounded-t-md px-5 py-2 text-sm font-medium cursor-pointer border-b-2 border-teal-500"
+          className="rounded-t-md px-5 py-2 text-sm font-xl font-bold cursor-pointer  border-teal-500"
         >
           Description
         </div>
