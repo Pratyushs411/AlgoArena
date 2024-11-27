@@ -77,5 +77,5 @@ export const validParentheses: Problem = {
 	handlerFunction: validParenthesesHandler,
 	startercode: starterCodeValidParenthesesJS,
 	starterFunctionName: "function validParentheses(",
-	order: "4",
+	order: 4,
 };

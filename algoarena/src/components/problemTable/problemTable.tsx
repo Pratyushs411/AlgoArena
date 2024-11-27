@@ -6,21 +6,21 @@ import { IoClose } from "react-icons/io5";
 import YouTube from "react-youtube";
 import { collection, doc, getDoc, getDocs, orderBy, query } from "firebase/firestore";
 import { auth, firestore } from "@/firebase/firebase";
-//import { DBProblem } from "@/utils/types/problem";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { problems } from "@/mockProblems/problems"
+import { problems } from "@/mockProblems/problems";
+import { DBProblem } from "@/utils/types/problem";
 type problemTableProps = {
-
+    setLoadingProblems: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const problemTable: React.FC<problemTableProps> = () => {
+const problemTable: React.FC<problemTableProps> = ({ setLoadingProblems }) => {
     const [youtubePlayer, setYoutubePlayer] = useState({
 		isOpen: false,
 		videoId: "",
 	});
-    //const problems = useGetProblems(setLoadingProblems);
-	//const solvedProblems = useGetSolvedProblems();
-	//console.log("solvedProblems", solvedProblems);
+    const problems = useGetProblems(setLoadingProblems);
+	const solvedProblems = useGetSolvedProblems();
+	console.log("solvedProblems", solvedProblems);
 	const closeModal = () => {
 		setYoutubePlayer({ isOpen: false, videoId: "" });
 	};
@@ -41,18 +41,25 @@ const problemTable: React.FC<problemTableProps> = () => {
                 return (
                     <tr className="bg-white border-b border-gray-200" key={problem.id}>
                         <th className='px-2 py-4 font-medium whitespace-nowrap text-dark-green-s'>
-                            <BsCheckCircle size={18} />
+                            {solvedProblems.includes(problem.id) && <BsCheckCircle size = {18} />}
                         </th>
                         <td className='px-6 py-4' style={{ width: "210px" }}>
-                            (
-                            <Link
-                                href={`/problems/${problem.pid}`}
-                                className='hover:text-blue-600 cursor-pointer text-black'
-                                target='_blank'
-                            >
-                                {problem.title}
-                            </Link>
-                            )
+                        {problem.link ? (
+									<Link
+										href={problem.link}
+										className='hover:text-blue-600 cursor-pointer text-black'
+										target='_blank'
+									>
+										{problem.title}
+									</Link>
+								) : (
+									<Link
+										className='hover:text-blue-600 cursor-pointer text-black'
+										href={`/problems/${problem.id}`}
+									>
+										{problem.title}
+									</Link>
+								)}
                         </td>
                         <td className={`px-6 py-4 ${difficulyColor}`}>{problem.difficulty}</td>
                         <td className="px-6 py-4 text-black" style={{ width: "150px" }}>{problem.category}</td>
@@ -100,3 +107,45 @@ const problemTable: React.FC<problemTableProps> = () => {
     )
 }
 export default problemTable;
+
+function useGetProblems(setLoadingProblems: React.Dispatch<React.SetStateAction<boolean>>) {
+	const [problems, setProblems] = useState<DBProblem[]>([]);
+
+	useEffect(() => {
+		const getProblems = async () => {
+			// fetching data logic
+			setLoadingProblems(true);
+			const q = query(collection(firestore, "problems"), orderBy("order", "asc"));
+			const querySnapshot = await getDocs(q);
+			const tmp: DBProblem[] = [];
+			querySnapshot.forEach((doc) => {
+				tmp.push({ id: doc.id, ...doc.data() } as DBProblem);
+			});
+			setProblems(tmp);
+			setLoadingProblems(false);
+		};
+
+		getProblems();
+	}, [setLoadingProblems]);
+	return problems;
+}
+function useGetSolvedProblems() {
+	const [solvedProblems, setSolvedProblems] = useState<string[]>([]);
+	const [user] = useAuthState(auth);
+
+	useEffect(() => {
+		const getSolvedProblems = async () => {
+			const userRef = doc(firestore, "users", user!.uid);
+			const userDoc = await getDoc(userRef);
+
+			if (userDoc.exists()) {
+				setSolvedProblems(userDoc.data().solvedProblems);
+			}
+		};
+
+		if (user) getSolvedProblems();
+		if (!user) setSolvedProblems([]);
+	}, [user]);
+
+	return solvedProblems;
+}

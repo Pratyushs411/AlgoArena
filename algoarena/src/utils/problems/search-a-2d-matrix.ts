@@ -107,5 +107,5 @@ export const search2DMatrix: Problem = {
 	startercode: starterCodeSearch2DMatrixJS,
 	handlerFunction: search2DMatrixHandler,
 	starterFunctionName: "function searchMatrix",
-	order: "5",
+	order: 5,
 };
