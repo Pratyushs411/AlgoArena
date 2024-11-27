@@ -37,7 +37,30 @@ export const search2DMatrixHandler = (fn: any) => {
 const starterCodeSearch2DMatrixJS = `// Do not edit function name
 function searchMatrix(matrix, target) {
   // Write your code here
-};`;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`;
 
 export const search2DMatrix: Problem = {
 	id: "search-a-2d-matrix",
@@ -76,10 +99,10 @@ export const search2DMatrix: Problem = {
 		},
 	],
 	constraints: `
-  <li class='mt-2'><code>m == matrix.length</code></li>
-  <li class='mt-2'><code>n == matrix[i].length</code></li>
-  <li class='mt-2'><code>1 <= m, n <= 100</code></li>
-  <li class='mt-2'><code>-10<sup>4</sup> <= matrix[i][j], target <= 10<sup>4</sup></code></li>
+  <li class='mt-2'><code style="color: black;">m == matrix.length</code></li>
+  <li class='mt-2'><code style="color: black;">n == matrix[i].length</code></li>
+  <li class='mt-2'><code style="color: black;">1 <= m, n <= 100</code></li>
+  <li class='mt-2'><code style="color: black;">-10<sup>4</sup> <= matrix[i][j], target <= 10<sup>4</sup></code></li>
   `,
 	startercode: starterCodeSearch2DMatrixJS,
 	handlerFunction: search2DMatrixHandler,

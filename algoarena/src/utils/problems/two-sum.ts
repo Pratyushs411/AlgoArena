@@ -3,7 +3,31 @@ import { Problem } from "../types/problem";
 
 const starterCodeTwoSum = `function twoSum(nums,target){
   // Write your code here
-};`;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`;
 
 // checks if the user has the correct code
 const handlerTwoSum = (fn: any) => {
@@ -68,15 +92,15 @@ export const twoSum: Problem = {
 			explanation: "Because nums[0] + nums[1] == 6, we return [0, 1].",
 		},
 	],
-	constraints: `<li class='mt-2'>
-  <code>2 ≤ nums.length ≤ 10</code>
+	constraints: `<li>
+  <code style="color: black;">2 ≤ nums.length ≤ 10</code>
 </li> <li class='mt-2'>
-<code>-10 ≤ nums[i] ≤ 10</code>
+<code style="color: black;">-10 ≤ nums[i] ≤ 10</code>
 </li> <li class='mt-2'>
-<code>-10 ≤ target ≤ 10</code>
+<code style="color: black;">-10 ≤ target ≤ 10</code>
 </li>
 <li class='mt-2 text-sm'>
-<strong>Only one valid answer exists.</strong>
+<span style="color:black;" class='mb-2'>Only one valid answer exists.</span>
 </li>`,
 	handlerFunction: handlerTwoSum,
 	startercode: starterCodeTwoSum,

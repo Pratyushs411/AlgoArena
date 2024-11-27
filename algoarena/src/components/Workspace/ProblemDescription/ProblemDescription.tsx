@@ -17,7 +17,7 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem }) => {
         </div>
       </div>
 
-      <div className="flex px-6 py-6 overflow-y-auto">
+      <div className="flex px-6 py-6 overflow-y-auto mb-4">
         <div className="w-full">
           {/* Problem Heading */}
           <div className="flex items-center justify-between mb-6">
@@ -51,13 +51,13 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem }) => {
 
           {/* Examples */}
           <div className="mb-6">
-            <h2 className="text-lg font-semibold mb-4">Examples</h2>
+            <h2 className="text-lg font-semibold mb-2">Examples</h2>
             {/* Example 1 */}
             {problem.examples.map((example, index) => (
               <div key={example.id}>
                 <p className="font-medium mb-2">Example {index + 1}: </p>
                 {example.img && (
-                  <img src={example.img} alt="" className="mt-3" />
+                  <img src={example.img} alt="" className="mt-3 mb-3" />
                 )}
                 <div className="example-card p-4 rounded-lg bg-teal-50 border border-teal-200">
                   <pre className="text-sm sm:text-base whitespace-normal break-words">
@@ -84,20 +84,7 @@ const ProblemDescription: React.FC<ProblemDescriptionProps> = ({ problem }) => {
           {/* Constraints */}
           <div className="mb-6">
             <h2 className="text-lg font-semibold mb-4">Constraints</h2>
-            <ul className="list-disc list-inside space-y-2">
-              <li>
-                <strong>2 ≤ nums.length ≤ 10</strong>
-              </li>
-              <li>
-                <strong>-10 ≤ nums[i] ≤ 10</strong>
-              </li>
-              <li>
-                <strong>-10 ≤ target ≤ 10</strong>
-              </li>
-              <li>
-                <strong>Only one valid answer exists.</strong>
-              </li>
-            </ul>
+            <div dangerouslySetInnerHTML={{ __html: problem.constraints }} />
           </div>
         </div>
       </div>

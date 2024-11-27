@@ -18,7 +18,31 @@ export const validParenthesesHandler = (fn: any) => {
 
 const starterCodeValidParenthesesJS = `function validParentheses(s) {
   // Write your code here
-};`;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`;
 
 export const validParentheses: Problem = {
 	id: "valid-parentheses",
@@ -48,8 +72,8 @@ export const validParentheses: Problem = {
 			outputText: "false",
 		},
 	],
-	constraints: `<li class='mt-2'><code>1 <= s.length <= 10<sup>4</sup></code></li>
-<li class='mt-2 '><code>s</code> consists of parentheses only <code class="text-md">'()[]{}'</code>.</li>`,
+	constraints: `<li class='mt-2'><code style="color: black;">1 <= s.length <= 10<sup>4</sup></code></li>
+<li class='mt-2 '><code style="color: black;">s</code> consists of parentheses only <code class="text-md" style="color: black;">'()[]{}'</code>.</li>`,
 	handlerFunction: validParenthesesHandler,
 	startercode: starterCodeValidParenthesesJS,
 	starterFunctionName: "function validParentheses(",

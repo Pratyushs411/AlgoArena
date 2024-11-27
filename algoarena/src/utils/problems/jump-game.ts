@@ -23,7 +23,31 @@ export const jumpGameHandler = (fn: any) => {
 
 const starterCodeJumpGameJS = `function canJump(nums) {
   // Write your code here
-};`;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+`;
 
 export const jumpGame: Problem = {
 	id: "jump-game",
@@ -51,8 +75,8 @@ export const jumpGame: Problem = {
 				"You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.",
 		},
 	],
-	constraints: `<li class='mt-2'><code >1 <= nums.length <= 10^4</code></li>
-    <li class='mt-2'><code>0 <= nums[i] <= 10^5</code></li>`,
+	constraints: `<li class='mt-2'><code style="color: black;">1 <= nums.length <= 10^4</code></li>
+    <li class='mt-2'><code style="color: black;">0 <= nums[i] <= 10^5</code></li>`,
 	startercode: starterCodeJumpGameJS,
 	handlerFunction: jumpGameHandler,
 	starterFunctionName: "function canJump(",
