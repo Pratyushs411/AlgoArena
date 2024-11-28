@@ -119,7 +119,7 @@ const Topbar: React.FC<topbarProps> = ({ problemPage }) => {
             )}
             {user && (
               <Link
-                href='/profile'
+                href='/'
                 className='cursor-pointer group relative'
               >
                 <Image
