@@ -15,6 +15,7 @@ AlgoArena is more than just a project—it’s a demonstration of how scalable a
 - 🧩 **Problem Page**  
   A central space where users can browse, view, and attempt challenges. Each problem has dedicated views and is dynamically served using statically generated routes.
 
+![problem page](problems.png)
 - 🔐 **Authentication System**  
   Implemented using Firebase Auth, our secure login/register system supports:
   - Strong password validation
@@ -23,9 +24,13 @@ AlgoArena is more than just a project—it’s a demonstration of how scalable a
 
 - 💬 **Discussion Page**  
   A real-time discussion forum where users can exchange ideas, ask doubts, or contribute solutions. This fosters community interaction, mentorship, and peer-to-peer learning.
+  
+![discuss page](discuss.png)
 
 - 📄 **About Page**  
   Designed to communicate the vision, mission, and team behind the project, using clean responsive layouts and Tailwind design patterns.
+  
+![about page](about.png)
 
 ---
 
@@ -56,6 +61,8 @@ This iterative feedback process significantly contributed to improving platform 
 ## 👥 Team Behind AlgoArena
 
 > A collaborative effort combining technical innovation, design thinking, and structured development.
+
+![team](team.png)
 
 | Name               | Role                            | Contributions                                                                 |
 |--------------------|----------------------------------|--------------------------------------------------------------------------------|
