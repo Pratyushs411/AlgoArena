@@ -41,7 +41,7 @@ AlgoArena is more than just a project—it’s a demonstration of how scalable a
 
 ## 🧠 System Architecture & Functional DFD
 
-To ensure long-term maintainability and clarity of logic flow, AlgoArena follows a layered component-based architecture. Here is the Level 1 Data Flow Diagram (DFD), explaining how users interact with the core components of the platform:
+To ensure long-term maintainability and clarity of logic flow, AlgoArena follows a layered component-based architecture. Here is the Level 0 Data Flow Diagram (DFD), explaining how users and admin interact with the core components of the platform:
 
 ### 🔎 Level 0 Data Flow Diagram
 
