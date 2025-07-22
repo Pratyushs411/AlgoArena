@@ -71,7 +71,7 @@ This iterative feedback process significantly contributed to improving platform 
 
 | Name               | Role                            | Contributions                                                                 |
 |--------------------|----------------------------------|--------------------------------------------------------------------------------|
-| **Pratyush Sharma**  | 🧠 Project Lead & Full-Stack Engineer | Led the technical vision, architected the full platform, developed major features (auth, layout, routing), and crafted the About Page. |
+| **Pratyush Sharma**  | 🧠 Project Lead & Full-Stack Engineer | Led the technical vision, architected the full platform, developed major features (auth, layout, routing), and crafted the About and Discussion page. |
 | **Somil Kumar**      | 🎨 UI/UX Designer                  | Created visually engaging layouts, designed the user interface with accessibility and responsiveness in mind. |
 | **Dilpreet Singh**   | 🧩 Systems Architect & Diagram Designer | Collaborated in shaping the core architecture and produced accurate system diagrams and flowcharts. |
 | **Ruhani Grover**    | 📚 Documentation & QA             | Authored comprehensive documentation and ensured clarity and usability across modules via structured testing. |
