@@ -43,11 +43,11 @@ AlgoArena is more than just a project—it’s a demonstration of how scalable a
 
 To ensure long-term maintainability and clarity of logic flow, AlgoArena follows a layered component-based architecture. Here is the Level 1 Data Flow Diagram (DFD), explaining how users interact with the core components of the platform:
 
-### 🔎 Level 1 Data Flow Diagram
+### 🔎 Level 0 Data Flow Diagram
 
-![DFD Level 1](assets/dfd-level1.png)
+![DFD Level 1](dfd.png)
 
-> This diagram represents user flow across modules such as login, problem-solving, and discussion, with backend interactions managed by Firebase.
+> This diagram represents user Data flow across modules.
 
 ---
 
