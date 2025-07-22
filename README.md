@@ -16,6 +16,11 @@ AlgoArena is more than just a project—it’s a demonstration of how scalable a
   A central space where users can browse, view, and attempt challenges. Each problem has dedicated views and is dynamically served using statically generated routes.
 
 ![problem page](problems.png)
+
+- ✍️ **In-browser Code Editor**
+
+![editor](editor.png)
+  
 - 🔐 **Authentication System**  
   Implemented using Firebase Auth, our secure login/register system supports:
   - Strong password validation
