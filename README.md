@@ -4,7 +4,6 @@
 
 It supports essential features like **secure authentication**, **password management**, and an **interactive discussion forum** — all designed under a carefully architected modular layout. AlgoArena has been **tested and reviewed by over 30 university students**, helping refine both usability and feature flow.
 
-🌐 **Live Demo**: [AlgoArena](https://algoarena-edu-i2yd.vercel.app/)
 
 ---
 
