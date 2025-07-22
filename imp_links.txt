@@ -1,6 +1,0 @@
-https://github.com/himanshugoyal77/discussion-forum
-https://www.youtube.com/watch?v=xmfcI2mjy4s
-https://www.youtube.com/watch?v=vABb1y4fmwE
-https://www.youtube.com/watch?v=GnodscC2p-A
-https://github.com/burakorkmez/leetcode-clone-youtube/blob/master/tailwind.config.js
-https://github.com/mbeps/next_discussion_platform
